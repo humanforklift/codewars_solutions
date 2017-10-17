@@ -45,7 +45,7 @@ For your convenience the characters of each rotor are in the pre-loaded constant
 var flapDisplay = function(lines, rotors) {
 	var newWord = "", arr = [], tempholder = 0, alphLength = ALPHABET.length, rotLen = rotors.length;
 	//calculate how many times to turn rotors
-    function calcMovement(i, j) {
+    	function calcMovement(i, j) {
 		if (j == 0) 
 			return rotors[i][0];
 		else 
@@ -55,17 +55,17 @@ var flapDisplay = function(lines, rotors) {
 	for (var i = 0, length = lines.length; i < length; i++) {
 		for (var j = 0; j < lines[i].length; j++) {
 			//temporarily store the value of the lines character + how many times the rotor needs to turn
-      		tempHolder = ALPHABET.indexOf(lines[i][j]) + calcMovement(i, j);
+      			tempHolder = ALPHABET.indexOf(lines[i][j]) + calcMovement(i, j);
 			//reduce temp value to be within range of ALPHABET
-      		while (tempHolder >= alphLength || ALPHABET.indexOf((lines[i]) + tempHolder) >= alphLength) {
+      			while (tempHolder >= alphLength || ALPHABET.indexOf((lines[i]) + tempHolder) >= alphLength) {
 				tempHolder -= alphLength;
 			}
 			//store relevant character in string 
-      		newWord += ALPHABET.charAt(tempHolder);
+      			newWord += ALPHABET.charAt(tempHolder);
 		}
 		//push string to array when it is complete,  
-    	//and reset string value for next iteration
-    	arr.push(newWord);
+    		//and reset string value for next iteration
+    		arr.push(newWord);
 		newWord = "";
 	}
 	return arr;
